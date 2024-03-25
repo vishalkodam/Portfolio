@@ -1,0 +1,103 @@
+/* Import Work Sans font */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
+
+.navbar {
+    background: rgb(207, 203, 187);
+    height: 5rem;
+    width: 100vw;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 3; 
+}
+
+.toggleBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.toggleIcon {
+    height: 3rem; /* Adjust height */
+    width: 3rem; /* Adjust width */
+}
+
+.desktopMenu {
+    display: flex;
+    align-items: center;
+}
+
+.desktopMenuListItem {
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.desktopMenuListItem:hover {
+    color: rgb(101, 99, 81);
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid rgb(101, 99, 81);
+    font-family: "Work Sans", sans-serif;
+}
+
+.desktopMenuBtn {
+    background: rgb(215, 230, 230);
+    color: black;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem;
+    border-radius: 2rem;
+}
+
+.active {
+    color: #030303;
+    border-bottom: 3px solid #030303;
+    padding-bottom: 0.5rem;
+}
+
+
+.mobMenu{
+    display: none;
+    object-fit: cover;
+    height: 2rem;
+}
+
+
+
+.navMenu{
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    height: fit-content;
+    min-width: 15rem;
+    background: rgb(193, 187, 166);
+    border-radius: 1rem;
+}
+
+.listItem{
+    color: rgb(110, 81, 44);
+    padding: 0.5rem 3rem;
+    margin: 0.25rem;
+}
+
+@media screen and (max-width: 710px) {
+    .mobMenu{
+        display: flex;
+    }
+    .desktopMenu{
+        display: none;
+    }
+    .desktopMenuBtn {
+        display: none;
+    }
+}

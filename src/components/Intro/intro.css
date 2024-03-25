@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
+
+#intro {
+    height: 100vh; /* Adjusted to use full viewport height */
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.introContent {
+    max-width: 80rem; 
+    padding: 2rem;
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: center; 
+}
+
+.introName {
+    color: rgb(34, 34, 30);
+    letter-spacing: 0.5px;
+}
+
+.introPara {
+    font-size: 1.75rem;
+    font-family: "Work Sans", sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0.75px;
+}
+
+.btn{
+    background: rgb(215, 230, 230);
+    margin: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+}
+
+.btnImg{
+    object-fit: cover;
+    margin: 0 0.3rem;
+    height: 1rem;
+}
