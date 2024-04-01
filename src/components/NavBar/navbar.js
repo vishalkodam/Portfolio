@@ -4,6 +4,7 @@ import lightModeIcon from '../../assets/Sun.svg'; // Import light mode icon
 import darkModeIcon from '../../assets/Moon.svg'; // Import dark mode icon
 import { Link } from 'react-scroll';
 import menu from '../../assets/menu.png';
+import resumeFile from '../../assets/Resume.pdf';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -27,25 +28,21 @@ const Navbar = () => {
       </button>
 
       <div className="desktopMenu">
-        <Link activeClass= 'active' to= 'intro' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">Home</Link>
-        <Link activeClass= 'active' to= 'about' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">About</Link>
-        <Link className="desktopMenuListItem">Resume</Link>
-      </div>
-      <button className="desktopMenuBtn" onClick={() => { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }}>Contact Me</button>
-
-
-{/* Menubar */}
-      <img src={menu} alt='Menu' className='mobMenu' onClick={() => setShowMenu(!showMenu)}/>
-      <div className="navMenu" style={{display: showMenu? 'flex':'none'}}>
-        <Link activeClass= 'active' to= 'intro' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>Home</Link>
-        <Link activeClass= 'active' to= 'about' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>About</Link>
-        <Link activeClass= 'active' to= 'contact' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>Contact</Link>
-        <Link className="listItem" onClick={() => setShowMenu(false)}>Resume</Link>
-        
+        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">Home</Link>
+        <Link activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">About</Link>
+        <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">Contact Me</Link>
       </div>
 
+      <button className="desktopMenuBtn" onClick={() => { window.open(resumeFile, "_blank") }}>Resume</button>
 
-
+      {/* Menubar */}
+      <img src={menu} alt='Menu' className='mobMenu' onClick={() => setShowMenu(!showMenu)} />
+      <div className="navMenu" style={{ display: showMenu ? 'flex' : 'none' }}>
+        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>Home</Link>
+        <Link activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>About</Link>
+        <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>Contact</Link>
+        <a href={resumeFile} className="listItem" download="resume.pdf" onClick={() => setShowMenu(false)}>Resume</a>
+      </div>
     </nav>
   );
 };
