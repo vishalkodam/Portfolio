@@ -1,29 +1,44 @@
-/* about.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 #about {
-    display: flex; /* Use flexbox layout */
-    flex-direction: column;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    text-align: center;
-    overflow: hidden;
-    width: 100vw;
-    max-width: 65rem;
-    margin: 0 auto;
-  }
-  
-  .aboutTitle{
-    font-size: 3rem;
-    font-weight: 600;
-    padding-top: 2rem;
-    margin-bottom: 1.5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  overflow: hidden;
+  width: 100vw;
+  max-width: 65rem;
+  margin: 0 auto;
+}
 
-  .aboutDescription{
-    font-weight: 400;
-    font-size: 1rem;
-    max-width: 50rem;
-    padding: 0 2rem;
-    margin: 0 auto;
-    text-align: justify;
-  }
-  
+.aboutTitle {
+  font-size: 3rem;
+  font-weight: 600;
+  padding-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.aboutDescription {
+  font-weight: 500;
+  font-size: 1.25rem;
+  max-width: 50rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+  text-align: justify;
+  letter-spacing: 0.50px;
+  line-height: 1.5;
+  font-family: '', sans-serif; 
+}
+
+.aboutDescription p {
+  margin-bottom: 1.5rem; /* Add margin to create space between paragraphs */
+}
+
+.aboutDescription a {
+  color: rgb(87, 87, 87);
+}
+
+.highlightedName {
+  font-size: 1.95rem; /* Increase the font size as needed */
+  font-weight: 1000; /* Optional: make it bold */
+}

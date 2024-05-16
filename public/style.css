@@ -6,8 +6,8 @@
     background: transparent;
 }
 
-body{
-    background: rgb(207, 203, 187);
+body {
+    background: rgb(207, 203, 187); /* Light gray background */
     color: rgb(110, 81, 44);
     overflow: hidden;
     overflow-y: scroll;

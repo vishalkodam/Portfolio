@@ -46,7 +46,7 @@
 }
 
 .desktopMenuBtn {
-    background: rgb(215, 230, 230);
+    background: rgb(181, 163, 139);
     color: black;
     border: none;
     display: flex;
@@ -58,7 +58,7 @@
 }
 
 .desktopMenuBtn:hover {
-    background: lightgrey; /* Change background color on hover if desired */
+    background: rgb(195, 184, 171); 
 }
 
 .active {
