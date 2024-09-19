@@ -13,7 +13,7 @@ const About = () => {
         </p>
 
         <p>
-        My journey began with a Bachelor’s in Electronics and Communications from <span className='highlightedName'>IIIT-N</span>, providing valuable insights into hardware systems. Since transitioning to computer science, I’ve published research on "<a href='https://ieeexplore.ieee.org/document/XXXXXX' target='_blank' rel='noopener noreferrer'><em>Covid-19 Detection from X-ray Scans Using Alexa</em></a>"on IEEE, further solidifying my commitment to impactful technology.
+        My journey began with a Bachelor’s in Electronics and Communications from <span className='highlightedName'>IIIT-N</span>, providing valuable insights into hardware systems. Since transitioning to computer science, I’ve published research on "<a href='https://ieeexplore.ieee.org/abstract/document/9781958' target='_blank' rel='noopener noreferrer'><em>Covid-19 Detection from X-ray Scans Using Alexa</em></a>"on IEEE, further solidifying my commitment to impactful technology.
         </p>
       </div>
 
