@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './navbar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import lightModeIcon from '../../assets/Sun.svg'; // Import light mode icon
 import darkModeIcon from '../../assets/Moon.svg'; // Import dark mode icon
 import { Link } from 'react-scroll';
@@ -33,7 +35,11 @@ const Navbar = () => {
         <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">Contact Me</Link>
       </div>
 
-      <button className="desktopMenuBtn" onClick={() => { window.open(resumeFile, "_blank") }}>Resume</button>
+      {/* Resume button */}
+      <button className="desktopMenuBtn" onClick={() => { window.open(resumeFile, "_blank") }}>
+        <FontAwesomeIcon icon={faDownload} className="downloadIcon" />
+        <span>Resume</span>
+      </button>
 
       {/* Menubar */}
       <img src={menu} alt='Menu' className='mobMenu' onClick={() => setShowMenu(!showMenu)} />

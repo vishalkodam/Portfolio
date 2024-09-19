@@ -1,5 +1,5 @@
 *{
-    margin: 0;
+    margin: 0 ;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
@@ -7,8 +7,8 @@
 }
 
 body {
-    background: rgb(207, 203, 187); /* Light gray background */
-    color: rgb(110, 81, 44);
+    background: rgb(207, 203, 187) !important; /* Light gray background */
+    color: rgb(110, 81, 44) !important;
     overflow: hidden;
     overflow-y: scroll;
 }

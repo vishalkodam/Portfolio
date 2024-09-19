@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 #about {
   display: flex;
   flex-direction: column;
@@ -9,6 +10,7 @@
   width: 100vw;
   max-width: 65rem;
   margin: 0 auto;
+  padding-bottom: 3rem; /* Add padding below */
 }
 
 .aboutTitle {
@@ -27,11 +29,11 @@
   text-align: justify;
   letter-spacing: 0.50px;
   line-height: 1.5;
-  font-family: '', sans-serif; 
+  font-family: 'Roboto', sans-serif;
 }
 
 .aboutDescription p {
-  margin-bottom: 1.5rem; /* Add margin to create space between paragraphs */
+  margin-bottom: 1.5rem;
 }
 
 .aboutDescription a {
@@ -39,6 +41,74 @@
 }
 
 .highlightedName {
-  font-size: 1.95rem; /* Increase the font size as needed */
-  font-weight: 1000; /* Optional: make it bold */
+  font-size: 1.95rem;
+  font-weight: 1000;
 }
+
+
+.skillBars {
+  margin-top: 3rem; 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%; 
+  max-width: 60rem; 
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.2); 
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skillBar {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  position: relative; 
+  overflow: hidden; 
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background color, scale, and shadow */
+}
+
+.skillBar:hover {
+  background-color: rgba(255, 255, 255, 0.25); 
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skillBarIcon {
+  font-size: 3rem; 
+  margin-right: 1.5rem; 
+  transition: transform 0.3s ease; 
+}
+
+.skillBar:hover .skillBarIcon {
+  transform: scale(1.1); 
+}
+
+.skillBarText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center text vertically */
+  text-align: left; /* Align text to the left */
+}
+
+.skillBarText h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.skillBarText p {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.skillBarsHeading {
+  font-size: 2.25rem; 
+  font-weight: 700;
+  margin-top: 3rem; 
+  margin-bottom: 0.5rem; 
+}
+
+
