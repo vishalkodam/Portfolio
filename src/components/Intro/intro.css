@@ -1,7 +1,8 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
 
 #intro {
-    height: 100vh; /* Adjusted to use full viewport height */
+    height: 100vh; 
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -28,6 +29,23 @@
     line-height: 1.5;
     letter-spacing: 0.75px;
 }
+
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; 
+    margin-top: 1rem; 
+}
+
+.link {
+    object-fit: cover;
+    height: 2.5rem; 
+    width: 2.5rem; 
+    color: rgb(95, 90, 72);
+}
+
 
 /* .btn{
     background: rgb(215, 230, 230);
