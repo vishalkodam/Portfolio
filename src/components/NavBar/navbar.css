@@ -32,9 +32,10 @@
     position: absolute;
     top: 4rem; 
     left: 0; 
-    transform: none; 
-    background: rgba(255, 255, 255, 0.9); /* Slightly off-white with transparency */
-    border: 2px solid #d3d3d3; /* Light gray border */
+    transform: none;
+    color: rgb(34, 34, 30); 
+    background: rgba(208, 188, 150, 0.462); 
+    border: 2px solid #d3d3d3;
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
