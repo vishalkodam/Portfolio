@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');
+
+#projects {
+    min-height: 100vh;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projectsTitle {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.projectsTable {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.projectRow {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.projectRow:hover {
+    transform: translateY(-5px);
+}
+
+.projectContent {
+    flex: 1;
+}
+
+.projectTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.projectDescription {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.projectTech {
+    font-size: 0.9rem;
+    color: #5d5454;
+    margin-bottom: 1.5rem;
+}
+
+.projectTech strong {
+    color: #555;
+}
+
+.projectLinks {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.githubButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #24292e;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.githubButton:hover {
+    background-color: #1a1f24;
+}
+
+.githubIcon {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .projectsTable {
+        grid-template-columns: 1fr;
+    }
+    
+    .projectsTitle {
+        font-size: 2.5rem;
+    }
+    
+    #projects {
+        padding: 2rem 1rem;
+    }
+}
