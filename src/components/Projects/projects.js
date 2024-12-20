@@ -6,6 +6,12 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 const Projects = () => {
   const projects = [
     {
+      title: "JIRA AI Assistant - Conversational AI for Streamlined Task Management",
+      description: "Built an intelligent chatbot using LangChain, OpenAI APIs, and Streamlit for UI to streamline JIRA project management. Integrated vector embeddings for task execution and enhanced usability via text-based commands.",
+      technologies: "Python, JIRA API, Langchain, OpenAI API, Streamlit, NLP",
+      github: "https://github.com/vishalkodam/JIRA_AI_BOT"
+    },
+    {
       title: "News Research Tool with LLM",
       description: "Developed an intelligent news research tool using LangChain and OpenAI APIs to analyze news articles and provide insights. Implemented vector embeddings for efficient information retrieval.",
       technologies: "Python, LangChain, OpenAI API, ChromaDB",
