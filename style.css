@@ -6,9 +6,37 @@
     background: transparent;
 }
 
+:root {
+    --bg: #cfcbbb; /* light background */
+    --text: #6e512c; /* light text */
+    --muted: #5d5454;
+    --nav-bg: #cfcbbb;
+    --surface: rgba(255, 255, 255, 0.2);
+    --surface-elev: rgba(255, 255, 255, 0.15);
+    --surface-hover: rgba(255, 255, 255, 0.25);
+    --button-bg: rgba(190, 169, 141, 0.6);
+    --button-bg-hover: rgba(195, 184, 171, 0.8);
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --border: #d3d3d3;
+}
+
+.dark {
+    --bg: #0f1115;
+    --text: #e6e6e6;
+    --muted: #a8a8a8;
+    --nav-bg: #151922;
+    --surface: rgba(255, 255, 255, 0.06);
+    --surface-elev: rgba(255, 255, 255, 0.08);
+    --surface-hover: rgba(255, 255, 255, 0.12);
+    --button-bg: rgba(255, 255, 255, 0.08);
+    --button-bg-hover: rgba(255, 255, 255, 0.16);
+    --card-shadow: rgba(0, 0, 0, 0.5);
+    --border: #2a2f3a;
+}
+
 body {
-    background: rgb(207, 203, 187) !important; /* Light gray background */
-    color: rgb(110, 81, 44) !important;
+    background: var(--bg) !important;
+    color: var(--text) !important;
     overflow: hidden;
     overflow-y: scroll;
 }
