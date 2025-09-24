@@ -32,12 +32,18 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <button className="toggleBtn" onClick={toggleTheme}>
-        <img
-          src={isDark ? darkModeIcon : lightModeIcon}
-          alt={isDark ? 'Dark Mode' : 'Light Mode'}
-          className="toggleIcon"
-        />
+      <button
+        className="toggleBtn"
+        onClick={toggleTheme}
+        aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+        aria-pressed={isDark}
+        title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      >
+        <div className={`themeSwitch ${isDark ? 'is-dark' : ''}`}>
+          <img src={lightModeIcon} alt="" className="themeSwitch__icon themeSwitch__icon--sun" aria-hidden="true" />
+          <img src={darkModeIcon} alt="" className="themeSwitch__icon themeSwitch__icon--moon" aria-hidden="true" />
+          <div className="themeSwitch__thumb" />
+        </div>
       </button>
 
       <div className="desktopMenu">
