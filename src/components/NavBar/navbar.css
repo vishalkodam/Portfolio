@@ -1,16 +1,21 @@
 .navbar {
-    background: var(--nav-bg);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
     height: 5rem;
     width: 100vw;
     max-width: 80rem;
-    margin: 0 auto;
+    margin: 0.5rem auto;
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
-    top: 0;
-    z-index: 3; 
+    top: 0.5rem;
+    z-index: 3;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .toggleBtn {
