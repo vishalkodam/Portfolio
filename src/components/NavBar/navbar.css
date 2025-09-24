@@ -1,5 +1,5 @@
 .navbar {
-    background: rgb(207, 203, 187);
+    background: var(--nav-bg);
     height: 5rem;
     width: 100vw;
     max-width: 80rem;
@@ -33,9 +33,9 @@
     top: 4rem; 
     left: 0; 
     transform: none;
-    color: rgb(34, 34, 30); 
-    background: rgba(208, 188, 150, 0.462); 
-    border: 2px solid #d3d3d3;
+    color: var(--text); 
+    background: var(--surface); 
+    border: 2px solid var(--border);
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
@@ -56,20 +56,20 @@
 .desktopMenuListItem {
     margin: 1rem;
     cursor: pointer;
-    color: rgb(110, 81, 44);
+    color: var(--text);
 }
 
 .desktopMenuListItem:hover {
-    color: rgb(101, 99, 81);
+    color: var(--muted);
     padding-bottom: 0.5rem;
-    border-bottom: 3px solid rgb(101, 99, 81);
+    border-bottom: 3px solid var(--muted);
     font-family: "Work Sans", sans-serif;
 }
 
 
 .desktopMenuBtn {
-    background: rgba(190, 169, 141, 0.6); /* Translucent background */
-    color: rgb(49, 49, 48);
+    background: var(--button-bg); /* Translucent background */
+    color: var(--text);
     border: none;
     display: flex;
     align-items: center;
@@ -81,13 +81,13 @@
 }
 
 .desktopMenuBtn:hover {
-    background: rgba(195, 184, 171, 0.8); /* Slightly darker translucent on hover */
+    background: var(--button-bg-hover); /* Slightly darker translucent on hover */
 }
 
 .downloadIcon {
     font-size: 1.25rem; 
     margin-right: 0.75rem;
-    color: rgb(78, 77, 74);
+    color: var(--text);
 }
 
 .desktopMenuBtn span {
@@ -112,12 +112,12 @@
     padding: 0.5rem;
     height: fit-content;
     min-width: 15rem;
-    background: rgb(193, 187, 166);
+    background: var(--surface);
     border-radius: 1rem;
 }
 
 .listItem{
-    color: rgb(110, 81, 44);
+    color: var(--text);
     padding: 0.5rem 3rem;
     margin: 0.25rem;
 }

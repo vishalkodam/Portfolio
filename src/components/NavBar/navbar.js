@@ -1,33 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
-import lightModeIcon from '../../assets/Sun.svg'; // Import light mode icon
+import lightModeIcon from '../../assets/Sun.svg'; // Light mode icon
+import darkModeIcon from '../../assets/Moon.svg'; // Dark mode icon
 import { Link } from 'react-scroll';
 import menu from '../../assets/menu.png';
 import resumeFile from '../../assets/Resume.pdf';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [showMessage, setShowMessage] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
-  // Function to show the motivational message
-  const showMotivationalMessage = () => {
-    setShowMessage(true);
-    setTimeout(() => setShowMessage(false), 5000); // Hide the message after 5 seconds
+  // Initialize theme from localStorage or system preference
+  useEffect(() => {
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const enableDark = stored ? stored === 'dark' : prefersDark;
+    if (enableDark) {
+      document.documentElement.classList.add('dark');
+      setIsDark(true);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle('dark', next);
+    localStorage.setItem('theme', next ? 'dark' : 'light');
   };
 
   return (
     <nav className="navbar">
-      <button className="toggleBtn" onClick={showMotivationalMessage}>
+      <button className="toggleBtn" onClick={toggleTheme}>
         <img
-          src={lightModeIcon}
-          alt="Light Mode"
+          src={isDark ? darkModeIcon : lightModeIcon}
+          alt={isDark ? 'Dark Mode' : 'Light Mode'}
           className="toggleIcon"
         />
-        {showMessage && (
-          <div className="message">On a Job HUNT! 🏹</div>
-        )}
       </button>
 
       <div className="desktopMenu">

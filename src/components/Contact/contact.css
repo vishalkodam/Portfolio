@@ -41,14 +41,14 @@
     max-width: 60rem;
     margin: 0.5rem;
     padding: 0.5rem 1rem;
-    color: black;
+    color: var(--text);
     border: none;
     border-radius: 0.5rem;
-    background: rgb(220, 219, 214);
+    background: var(--surface);
 }
 
 .submitBtn {
-    background: rgb(220, 219, 214);
+    background: var(--button-bg);
     border: none;
     border-radius: 0.5rem;
     margin: 0.5rem;
@@ -57,7 +57,7 @@
 }
 
 .submitBtn:hover {
-    background: rgb(211, 197, 197); /* Change color on hover if desired */
+    background: var(--button-bg-hover); /* Change color on hover if desired */
 }
 
 
@@ -73,5 +73,5 @@
     height: 3rem;
     width: 3rem;
     margin: auto;
-    color: rgb(95, 90, 72);
+    color: var(--muted);
 }

@@ -19,7 +19,7 @@
 }
 
 .introName {
-    color: rgb(34, 34, 30);
+    color: var(--text);
     letter-spacing: 0.5px;
 }
 
@@ -43,7 +43,7 @@
     object-fit: cover;
     height: 2.5rem; 
     width: 2.5rem; 
-    color: rgb(95, 90, 72);
+    color: var(--muted);
 }
 
 

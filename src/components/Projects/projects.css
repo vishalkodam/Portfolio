@@ -24,10 +24,10 @@
 }
 
 .projectRow {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--surface);
     border-radius: 1rem;
     padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--card-shadow);
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -56,12 +56,12 @@
 
 .projectTech {
     font-size: 0.9rem;
-    color: #5d5454;
+    color: var(--muted);
     margin-bottom: 1.5rem;
 }
 
 .projectTech strong {
-    color: #555;
+    color: var(--text);
 }
 
 .projectLinks {
@@ -73,8 +73,8 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: #24292e;
-    color: white;
+    background-color: var(--surface-elev);
+    color: var(--text);
     padding: 0.75rem 1.25rem;
     border-radius: 2rem;
     text-decoration: none;
@@ -83,7 +83,7 @@
 }
 
 .githubButton:hover {
-    background-color: #1a1f24;
+    background-color: var(--surface-hover);
 }
 
 .githubIcon {

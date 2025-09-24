@@ -37,11 +37,11 @@
 }
 
 .aboutDescription a {
-  color: rgb(87, 87, 87);
+  color: var(--muted);
 }
 
 .highlightedName {
-  font-size: 1.95rem;
+  font-size: 1.5rem;
   font-weight: 1000;
 }
 
@@ -54,16 +54,16 @@
   width: 100%; 
   max-width: 60rem; 
   padding: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.2); 
+  background-color: var(--surface); 
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--card-shadow);
 }
 
 .skillBar {
   display: flex;
   align-items: center;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--surface-elev);
   border-radius: 8px;
   position: relative; 
   overflow: hidden; 
@@ -71,9 +71,9 @@
 }
 
 .skillBar:hover {
-  background-color: rgba(255, 255, 255, 0.25); 
+  background-color: var(--surface-hover); 
   transform: scale(1.05); 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px var(--card-shadow);
 }
 
 .skillBarIcon {

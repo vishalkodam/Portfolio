@@ -3,7 +3,7 @@ import './contact.css';
 import emailjs from '@emailjs/browser';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub, faInstagram, faHackerrank } from '@fortawesome/free-brands-svg-icons';
 
 const Contact = () => {
   const form = useRef();
@@ -48,6 +48,9 @@ const Contact = () => {
           </a>
           <a href="https://www.instagram.com/__vishal017" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faInstagram} alt='Instagram' className='link' />
+          </a>
+          <a href="https://leetcode.com/u/Vishal_kodam/" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faHackerrank} alt='Leetcode' className='link' />
           </a>
         </div>
         {submitted && <div className="submittedMessage">Form submitted successfully!</div>}
