@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    background: transparent;
 }
 
 :root {
@@ -11,9 +10,9 @@
     --text: #6e512c; /* light text */
     --muted: #5d5454;
     --nav-bg: #cfcbbb;
-    --surface: rgba(255, 255, 255, 0.2);
-    --surface-elev: rgba(255, 255, 255, 0.15);
-    --surface-hover: rgba(255, 255, 255, 0.25);
+    --surface: rgba(255, 255, 255, 0.4);
+    --surface-elev: rgba(255, 255, 255, 0.3);
+    --surface-hover: rgba(255, 255, 255, 0.5);
     --button-bg: rgba(190, 169, 141, 0.6);
     --button-bg-hover: rgba(195, 184, 171, 0.8);
     --card-shadow: rgba(0, 0, 0, 0.1);
@@ -25,9 +24,9 @@
     --text: #e6e6e6;
     --muted: #a8a8a8;
     --nav-bg: #151922;
-    --surface: rgba(255, 255, 255, 0.06);
-    --surface-elev: rgba(255, 255, 255, 0.08);
-    --surface-hover: rgba(255, 255, 255, 0.12);
+    --surface: rgba(255, 255, 255, 0.1);
+    --surface-elev: rgba(255, 255, 255, 0.12);
+    --surface-hover: rgba(255, 255, 255, 0.18);
     --button-bg: rgba(255, 255, 255, 0.08);
     --button-bg-hover: rgba(255, 255, 255, 0.16);
     --card-shadow: rgba(0, 0, 0, 0.5);
