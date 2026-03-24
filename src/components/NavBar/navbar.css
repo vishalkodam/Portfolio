@@ -168,6 +168,7 @@
     display: none;
     object-fit: cover;
     height: 2rem;
+    cursor: pointer;
 }
 
 .navMenu{

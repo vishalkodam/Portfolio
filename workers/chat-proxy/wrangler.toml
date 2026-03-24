@@ -1,0 +1,8 @@
+name = "portfolio-chat-proxy"
+main = "src/index.js"
+compatibility_date = "2025-12-15"
+
+[vars]
+# Change if you want a different default model.
+GROQ_MODEL = "llama-3.3-70b-versatile"
+

@@ -1,5 +1,5 @@
 {
-  "homepage": "http://vishalkodam.github.io/Portfolio",
+  "homepage": "https://vishalkodam.github.io/Portfolio",
   "name": "website",
   "version": "0.1.0",
   "private": true,
@@ -23,9 +23,12 @@
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "deploy:site": "wrangler deploy --config wrangler.jsonc",
+    "deploy:chat-proxy": "wrangler deploy --config workers/chat-proxy/wrangler.toml",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "preview": "npm run build && wrangler dev --config wrangler.jsonc"
   },
   "eslintConfig": {
     "extends": [
@@ -35,7 +38,8 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.17.0",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "wrangler": "^4.74.0"
   },
   "browserslist": {
     "production": [

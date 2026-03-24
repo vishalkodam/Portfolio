@@ -73,5 +73,22 @@
     height: 3rem;
     width: 3rem;
     margin: auto;
-    color: var(--muted);
+    color: var(--muted) !important;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link:hover {
+    color: var(--text) !important;
+    transform: scale(1.1);
+}
+
+/* Override FontAwesome default colors */
+.link svg {
+    color: var(--muted) !important;
+    fill: var(--muted) !important;
+}
+
+.link:hover svg {
+    color: var(--text) !important;
+    fill: var(--text) !important;
 }
