@@ -24,7 +24,7 @@ flowchart TD
   retriever --> ui
   ui --> env[REACT_APP_CHAT_API_URL]
   ui --> api[Cloudflare Worker /chat]
-  api --> llm[Hosted Open-Weights LLM (Groq)]
+  api --> llm["Hosted Open-Weights LLM (Groq)"]
   llm --> api
   api --> ui
   ui --> user
