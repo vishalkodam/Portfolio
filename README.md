@@ -83,7 +83,3 @@ cd "C:\Users\visha\Downloads\Portfolio"
 npm run deploy
 ```
 
-## Notes
-- Do not commit your `.env` file (it’s ignored by `.gitignore`).
-- If you change the content used by the chatbot, edit `src/chatbot/knowledgeText.js`.
-
