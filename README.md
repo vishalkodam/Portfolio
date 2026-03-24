@@ -1,6 +1,6 @@
 ## Vishal Kodam Portfolio
 
-This repository contains a React-based personal portfolio website with a small on-site chatbot that can answer questions about Vishal using a grounded knowledge base (your portfolio content).
+This repository contains a React-based personal portfolio website with a small on-site chatbot that can answer questions about Vishal using a grounded knowledge base (portfolio content).
 
 ## Features
 - Responsive portfolio sections: `Home`, `About`, `Projects`, `Contact`
