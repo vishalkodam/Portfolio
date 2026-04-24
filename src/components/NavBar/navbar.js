@@ -47,10 +47,10 @@ const Navbar = () => {
       </button>
 
       <div className="desktopMenu">
-        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">Home</Link>
-        <Link activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">About</Link>
-        <Link activeClass='active' to='projects' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">Projects</Link>
-        <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={500} className="desktopMenuListItem">Contact Me</Link>
+        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Home</Link>
+        <Link activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">About</Link>
+        <Link activeClass='active' to='projects' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Projects</Link>
+        <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Contact Me</Link>
       </div>
 
       <button className="desktopMenuBtn" onClick={() => { window.open(resumeFile, "_blank") }}>
@@ -60,10 +60,10 @@ const Navbar = () => {
 
       <img src={menu} alt='Menu' className='mobMenu' onClick={() => setShowMenu(!showMenu)} />
       <div className="navMenu" style={{ display: showMenu ? 'flex' : 'none' }}>
-        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>Home</Link>
-        <Link activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>About</Link>
-        <Link activeClass='active' to='projects' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>Projects</Link> 
-        <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={500} className="listItem" onClick={() => setShowMenu(false)}>Contact</Link>
+        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>Home</Link>
+        <Link activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>About</Link>
+        <Link activeClass='active' to='projects' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>Projects</Link> 
+        <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>Contact</Link>
         <a href={resumeFile} className="listItem" download="resume.pdf" onClick={() => setShowMenu(false)}>Resume</a>
       </div>
     </nav>
