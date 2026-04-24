@@ -6,6 +6,34 @@
     background: transparent;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform-origin: 0 50%;
+    z-index: 100;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        var(--muted),
+        var(--text) 40%,
+        var(--button-bg-hover)
+    );
+    opacity: 0.9;
+}
+
 :root {
     --bg: #cfcbbb; /* light background */
     --text: #6e512c; /* light text */
@@ -21,10 +49,10 @@
 }
 
 .dark {
-    --bg: #0f1115;
+    --bg: #06060d;
     --text: #e6e6e6;
     --muted: #a8a8a8;
-    --nav-bg: #151922;
+    --nav-bg: rgba(21, 25, 34, 0.72);
     --surface: rgba(255, 255, 255, 0.1);
     --surface-elev: rgba(255, 255, 255, 0.12);
     --surface-hover: rgba(255, 255, 255, 0.18);
@@ -32,6 +60,51 @@
     --button-bg-hover: rgba(255, 255, 255, 0.16);
     --card-shadow: rgba(0, 0, 0, 0.5);
     --border: #2a2f3a;
+}
+
+/* Dark mode: deep space + galaxy (see AstroBackground.jsx for stars canvas) */
+.astro-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.astro-galaxy {
+    position: absolute;
+    inset: -25% -15%;
+    width: 130%;
+    height: 150%;
+    background:
+        radial-gradient(ellipse 110% 70% at 50% 108%, rgba(88, 28, 135, 0.55), transparent 58%),
+        radial-gradient(ellipse 90% 55% at 12% 22%, rgba(37, 99, 235, 0.32), transparent 52%),
+        radial-gradient(ellipse 65% 50% at 88% 18%, rgba(139, 92, 246, 0.22), transparent 48%),
+        radial-gradient(ellipse 70% 90% at 50% -25%, rgba(14, 165, 233, 0.14), transparent 42%),
+        radial-gradient(ellipse 45% 35% at 72% 65%, rgba(236, 72, 153, 0.08), transparent 50%),
+        linear-gradient(185deg, #030306 0%, #0a0b12 35%, #0f0e18 70%, #12101f 100%);
+}
+
+.astro-stars-wrap {
+    position: absolute;
+    inset: 0;
+}
+
+.astro-stars-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.92;
+}
+
+.App {
+    position: relative;
+    min-height: 100vh;
+}
+
+.App-main {
+    position: relative;
+    z-index: 1;
 }
 
 body {
