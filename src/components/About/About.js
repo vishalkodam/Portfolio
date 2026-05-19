@@ -9,11 +9,11 @@ const About = () => {
       <span className='aboutTitle'>Want to know about ME???</span>
       <div className='aboutDescription'>
         <p>
-          Hello! I'm <span className='highlightedName'>Vishal Kodam</span>, a Master's student in Computer Science at <span className='highlightedName'>SUNY Polytechnic Institute</span>, specializing in machine learning, advanced algorithms, and optimization strategies. With a strong foundation in both hardware and software, I aim to bridge the gap between technology and impactful solutions.
+          Hello! I'm <span className='highlightedName'>Vishal Kodam</span>, a Master's student in Computer Science at <span className='highlightedName'>SUNY Polytechnic Institute</span>, specializing in machine learning, advanced algorithms, and optimization strategies. I currently work as a <span className='highlightedName'>Network Engineer</span> at <span className='highlightedName'>Google</span> through <span className='highlightedName'>(NCV Telecom)</span>, where I support large-scale network operations and bring together infrastructure, automation, and problem-solving at production scale.
         </p>
 
         <p>
-          My journey began with a Bachelor’s in Electronics and Communication from <span className='highlightedName'>IIIT-N</span>, where I gained valuable insights into hardware systems. Transitioning to computer science, I have developed expertise in building AI-driven applications, data analysis, and DevOps solutions. My research on "<a href='https://ieeexplore.ieee.org/abstract/document/9781958' target='_blank' rel='noopener noreferrer'><em>Covid-19 Detection from X-ray Scans Using Alexa</em></a>," published by IEEE, showcases my commitment to creating meaningful technological advancements.
+          My journey began with a Bachelor’s in Electronics and Communication from <span className='highlightedName'>IIIT-N</span>, where I built a strong foundation in hardware and systems. Since then, I have grown into software and AI—building LLM-powered tools, data pipelines, and DevOps workflows—while my current role strengthens how I think about reliability, connectivity, and real-world infrastructure. My IEEE research on "<a href='https://ieeexplore.ieee.org/abstract/document/9781958' target='_blank' rel='noopener noreferrer'><em>Covid-19 Detection from X-ray Scans Using Alexa</em></a>" reflects the same drive: applying technology to problems that matter.
         </p>
       </div>
 

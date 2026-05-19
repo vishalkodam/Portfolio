@@ -3,9 +3,16 @@ export const knowledgeText = `# Vishal Kodam — Knowledge Base (Portfolio)
 ## Identity
 - Name: Vishal Kodam
 - Tagline: TECH --Innovation | Research | Social
-- Current: Master's student in Computer Science at SUNY Polytechnic Institute
-- Focus areas: machine learning, advanced algorithms, optimization strategies
-- Background: Bachelor's in Electronics and Communication from IIIT-N; strong foundation in hardware + software; goal is bridging technology with impactful solutions.
+- Current: Master's student in Computer Science at SUNY Polytechnic Institute; Network Engineer contractor at Google (via NCV Telecom)
+- Focus areas: machine learning, advanced algorithms, optimization strategies, network infrastructure, automation
+- Background: Bachelor's in Electronics and Communication from IIIT-N; strong foundation in hardware + software; bridges networking, systems, and AI-driven software
+
+## Experience
+### Google (Contractor via NCV Telecom) — Network Engineer
+- Role: Network Engineer (contractor)
+- Employer of record: NCV Telecom
+- Client: Google
+- Summary: Supports large-scale network operations; applies systems thinking, troubleshooting, and automation alongside a software/ML background from graduate studies and personal projects.
 
 ## Research / Publication
 - Paper: "Covid-19 Detection from X-ray Scans Using Alexa" (IEEE)

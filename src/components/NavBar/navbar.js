@@ -53,10 +53,16 @@ const Navbar = () => {
         <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Contact Me</Link>
       </div>
 
-      <button className="desktopMenuBtn" onClick={() => { window.open(resumeFile, "_blank") }}>
+      <a
+        className="desktopMenuBtn"
+        href={resumeFile}
+        download="Vishal_Kodam_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <FontAwesomeIcon icon={faDownload} className="downloadIcon" />
         <span>Resume</span>
-      </button>
+      </a>
 
       <img src={menu} alt='Menu' className='mobMenu' onClick={() => setShowMenu(!showMenu)} />
       <div className="navMenu" style={{ display: showMenu ? 'flex' : 'none' }}>
@@ -64,7 +70,16 @@ const Navbar = () => {
         <Link activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>About</Link>
         <Link activeClass='active' to='projects' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>Projects</Link> 
         <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>Contact</Link>
-        <a href={resumeFile} className="listItem" download="resume.pdf" onClick={() => setShowMenu(false)}>Resume</a>
+        <a
+          href={resumeFile}
+          className="listItem"
+          download="Vishal_Kodam_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setShowMenu(false)}
+        >
+          Resume
+        </a>
       </div>
     </nav>
   );
