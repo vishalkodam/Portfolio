@@ -1,85 +1,134 @@
-## Vishal Kodam Portfolio
+# Vishal Kodam Portfolio
 
-This repository contains a React-based personal portfolio website with a small on-site chatbot that can answer questions about Vishal using a grounded knowledge base (portfolio content).
+Personal portfolio site built with React, deployed to GitHub Pages. Includes a separate **Writings** section for long-form posts and an on-site chatbot grounded in portfolio content.
+
+**Live site:** [https://vishalkodam.github.io/Portfolio/](https://vishalkodam.github.io/Portfolio/)
 
 ## Features
-- Responsive portfolio sections: `Home`, `About`, `Projects`, `Contact`
-- On-site “Ask about Vishal” chatbot widget
-- Grounded answers using a local knowledge base (`src/chatbot/knowledge.md`)
-- LLM calls are proxied through a Cloudflare Worker (API keys stay server-side)
 
-## Tech Stack
-- Frontend: React (Create React App)
-- Styling: plain CSS + CSS variables (supports the existing dark mode theme)
-- Chatbot:
-  - Client-side retrieval: keyword-based chunk selection (`src/chatbot/retrieval.js`)
-  - Serverless API proxy: Cloudflare Worker (`workers/chat-proxy`)
+- **Portfolio home** — scroll sections: Home, About, Projects, Contact
+- **Writings** — dedicated pages at `/writings` and `/writings/:slug` (same domain, no separate site)
+- **Dark mode** — theme toggle with persisted preference
+- **Motion** — scroll reveal, progress bar, and astro background (Framer Motion `LazyMotion`)
+- **Chatbot** — “Ask about Vishal” widget with client-side retrieval and optional Cloudflare Worker proxy for LLM calls
 
-## Architecture Diagram
-```mermaid
-flowchart TD
-  user[User] --> ui[ChatbotWidget React UI]
-  ui --> kb[Knowledge Base]
-  kb --> retriever[Client Retriever]
-  retriever --> ui
-  ui --> env[REACT_APP_CHAT_API_URL]
-  ui --> api[Cloudflare Worker /chat]
-  api --> llm["Hosted Open-Weights LLM (Groq)"]
-  llm --> api
-  api --> ui
-  ui --> user
+## Routes
+
+| Path | Page |
+|------|------|
+| `/` | Portfolio (intro, about, projects, contact) |
+| `/writings` | Writings index |
+| `/writings/over-engineered-architecture` | Article: *The Wrong Assumption Behind Over-Engineered Architecture* |
+
+Local dev uses the same paths under the `homepage` base: `http://localhost:3000/Portfolio/`.
+
+## Tech stack
+
+- **Frontend:** React 18 (Create React App), React Router
+- **Styling:** CSS variables (light/dark), component-scoped CSS
+- **Animation:** Framer Motion (`LazyMotion` + `domAnimation`)
+- **Contact:** EmailJS
+- **Chatbot:** keyword retrieval (`src/chatbot/retrieval.js`) + optional Cloudflare Worker (`workers/chat-proxy`)
+
+## Project structure
+
+```
+src/
+  App.js                 # Router + routes
+  pages/
+    HomePage.jsx         # Main portfolio
+    WritingsPage.jsx     # Writings list
+    WritingArticlePage.jsx
+  components/
+    Writings/
+      writingsData.js    # Post metadata (title, slug, tags, summary)
+      Writings.js        # Index UI
+      WritingArticle.jsx # Article shell
+      articles/          # One component per post
+    NavBar/              # Nav (scroll links + NavLink for Writings)
+    Chatbot/
+    ...
+  chatbot/
+    knowledge.md         # Source knowledge (sync to knowledgeText.js as needed)
+scripts/
+  gh-pages-deploy.js     # Deploy helper (ensures Git is on PATH on Windows)
+public/
+  404.html               # GitHub Pages SPA fallback
 ```
 
-## Local Development
+## Local development
 
-### 1) Install and run the site
 ```powershell
 cd "C:\Users\visha\Downloads\Portfolio"
 npm install
 npm start
 ```
 
-The dev server will start on `http://localhost:3000` (or another port if 3000 is already in use).
+Open [http://localhost:3000/Portfolio/](http://localhost:3000/Portfolio/).
 
-### 2) Configure the chatbot API URL
-Create/update `.env` in the repo root:
+### Chatbot API (optional)
+
+Create `.env` in the repo root:
+
 ```env
 REACT_APP_CHAT_API_URL=https://<your-worker-subdomain>.workers.dev/chat
 ```
 
-Restart the dev server after changing `.env`.
+Restart the dev server after changing `.env`. Without this URL, the chatbot UI still loads but shows a configuration message instead of calling the API.
+
+## Adding a writing
+
+1. Add metadata in `src/components/Writings/writingsData.js` (`slug`, `title`, `subtitle`, `date`, `summary`, `tags`).
+2. Create `src/components/Writings/articles/YourArticle.jsx` with the article body.
+3. Register the component in `src/components/Writings/WritingArticle.jsx` (`ARTICLE_COMPONENTS`).
+
+The new post appears on `/writings` and at `/writings/<slug>` automatically.
 
 ## Chatbot (Cloudflare Worker)
 
-The Worker accepts a `POST` request at `/chat` with:
-- `question` (string)
-- `context` (string assembled by the frontend retriever)
+The Worker accepts `POST /chat` with `question` and `context` (assembled by the frontend retriever). It forwards to a hosted LLM using `GROQ_API_KEY` as a Worker secret.
 
-It forwards the request to a Groq open-weights chat model using `GROQ_API_KEY` stored as a Worker secret.
-
-### Setup steps
-1. Install Wrangler (once):
-   ```powershell
-   npm i -g wrangler
-   ```
-2. Log in to Cloudflare:
-   ```powershell
-   wrangler login
-   ```
-3. Configure the Groq API key as a secret:
-   ```powershell
-   cd "C:\Users\visha\Downloads\Portfolio\workers\chat-proxy"
-   wrangler secret put GROQ_API_KEY --config "wrangler.toml"
-   ```
-4. Deploy the Worker:
-   ```powershell
-   wrangler deploy --config "wrangler.toml"
-   ```
-5. Copy the Worker URL shown by Wrangler and plug it into `.env` as `REACT_APP_CHAT_API_URL` (append `/chat`).
-
-## Deploy to GitHub Pages
 ```powershell
-cd "C:\Users\visha\Downloads\Portfolio"
+npm i -g wrangler
+wrangler login
+cd workers/chat-proxy
+wrangler secret put GROQ_API_KEY --config wrangler.toml
+wrangler deploy --config wrangler.toml
+```
+
+Set the deployed URL in `.env` as `REACT_APP_CHAT_API_URL` (include `/chat`).
+
+## Deploy
+
+### GitHub Pages (primary)
+
+```powershell
 npm run deploy
 ```
 
+This runs `npm run build` then publishes `build/` to the `gh-pages` branch via `scripts/gh-pages-deploy.js`.
+
+**Note:** `gh-pages` requires Git. If you see `spawn git ENOENT`, install [Git for Windows](https://git-scm.com/download/win) or add `C:\Program Files\Git\cmd` to your system PATH.
+
+### Cloudflare (optional)
+
+```powershell
+npm run deploy:site          # static assets from build/
+npm run deploy:chat-proxy    # chat API worker
+npm run preview              # local wrangler preview after build
+```
+
+## Architecture (chatbot)
+
+```mermaid
+flowchart TD
+  user[User] --> ui[ChatbotWidget]
+  ui --> kb[Knowledge base]
+  kb --> retriever[Client retriever]
+  retriever --> ui
+  ui --> api[Cloudflare Worker /chat]
+  api --> llm[Groq LLM]
+  llm --> api
+  api --> ui
+  ui --> user
+```
