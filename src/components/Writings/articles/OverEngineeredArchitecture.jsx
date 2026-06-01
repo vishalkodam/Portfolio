@@ -154,7 +154,16 @@ export default function OverEngineeredArchitecture() {
 
       <h2>The CDN edge teaches the same lesson</h2>
 
-      <p>Ashutosh Singh&apos;s writing on CDN economics makes a useful point: &quot;closer to the user&quot; is the obvious explanation for why CDNs are cheaper, but not the deepest one. Why are CDNs cheaper than your origin server? (May 2026)</p>
+      <p>
+        <a
+          href="https://4shutosh.com/cheap-cdn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ashutosh Singh&apos;s writing on CDN economics
+        </a>{" "}
+        makes a useful point: &quot;closer to the user&quot; is the obvious explanation for why CDNs are cheaper, but not the deepest one.
+      </p>
 
       <p>Geography matters. When an origin in Mumbai serves a user in London, the request crosses expensive long-haul transit on every hit. A CDN still pays that cost once to pull content from origin and warm the cache. After that, thousands of London users are served locally. The expensive trip is amortized, not repeated per user.</p>
 
