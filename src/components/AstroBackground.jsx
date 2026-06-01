@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { m, useScroll, useTransform, useReducedMotion } from "framer-motion";
 
 function useIsDarkMode() {
   const [dark, setDark] = useState(() =>
@@ -61,8 +61,7 @@ export default function AstroBackground() {
       h = window.innerHeight;
       canvas.width = Math.floor(w * dpr);
       canvas.height = Math.floor(h * dpr);
-      canvas.style.width = `${w}px`;
-      canvas.style.height = `${h}px`;
+      canvas.style.cssText = `width:${w}px;height:${h}px`;
       stars = Array.from({ length: 240 }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -111,16 +110,16 @@ export default function AstroBackground() {
 
   return (
     <div className="astro-background" aria-hidden="true">
-      <motion.div
+      <m.div
         className="astro-galaxy"
         style={{ y: reduceMotion ? 0 : galaxyY }}
       />
-      <motion.div
+      <m.div
         className="astro-stars-wrap"
         style={{ y: reduceMotion ? 0 : starsLayerY }}
       >
         <canvas ref={canvasRef} className="astro-stars-canvas" />
-      </motion.div>
+      </m.div>
     </div>
   );
 }

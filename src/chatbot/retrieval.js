@@ -122,12 +122,13 @@ export function retrieveTopChunks({ question, knowledgeMarkdown, maxChunks = 5 }
   const chunks = chunkKnowledge(knowledgeMarkdown);
   const queryTokens = tokenize(question);
 
-  const scored = chunks
-    .map((c) => ({ ...c, score: scoreChunk(queryTokens, c) }))
-    .filter((c) => c.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, maxChunks);
+  const scored = [];
+  for (const c of chunks) {
+    const score = scoreChunk(queryTokens, c);
+    if (score > 0) scored.push({ ...c, score });
+  }
+  scored.sort((a, b) => b.score - a.score);
 
-  return scored.map(({ title, text }) => ({ title, text }));
+  return scored.slice(0, maxChunks).map(({ title, text }) => ({ title, text }));
 }
 

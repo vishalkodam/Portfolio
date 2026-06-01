@@ -59,8 +59,8 @@ const Projects = () => {
     <section id="projects">
       <h1 className="projectsTitle">My Projects</h1>
       <div className="projectsTable">
-        {projects.map((project, index) => (
-          <div className="projectRow" key={index}>
+        {projects.map((project) => (
+          <div className="projectRow" key={project.github}>
             <div className="projectContent">
               <h2 className="projectTitle">{project.title}</h2>
               <p className="projectDescription">{project.description}</p>

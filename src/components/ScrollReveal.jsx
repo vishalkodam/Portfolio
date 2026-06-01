@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 const variants = {
   hidden: { opacity: 0, y: 40 },
@@ -13,7 +13,7 @@ export default function ScrollReveal({ children, className, delay = 0 }) {
   }
 
   return (
-    <motion.div
+    <m.div
       className={className}
       initial="hidden"
       whileInView="visible"
@@ -26,6 +26,6 @@ export default function ScrollReveal({ children, className, delay = 0 }) {
       }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

@@ -14,6 +14,7 @@
     "framer-motion": "^11.16.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.16.0",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.0",
     "selenium-webdriver": "^4.28.1",
@@ -22,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "node scripts/gh-pages-deploy.js",
     "deploy:site": "wrangler deploy --config wrangler.jsonc",
     "deploy:chat-proxy": "wrangler deploy --config workers/chat-proxy/wrangler.toml",
     "build": "react-scripts build",

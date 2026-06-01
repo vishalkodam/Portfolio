@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
-import lightModeIcon from '../../assets/Sun.svg'; // Light mode icon
-import darkModeIcon from '../../assets/Moon.svg'; // Dark mode icon
-import { Link } from 'react-scroll';
+import lightModeIcon from '../../assets/Sun.svg';
+import darkModeIcon from '../../assets/Moon.svg';
+import { Link as ScrollLink } from 'react-scroll';
+import { NavLink, useLocation } from 'react-router-dom';
 import menu from '../../assets/menu.png';
 import resumeFile from '../../assets/Resume.pdf';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const location = useLocation();
+  const onWritingsPage = location.pathname.includes('/writings');
 
-  // Initialize theme from localStorage or system preference
   useEffect(() => {
     const stored = localStorage.getItem('theme');
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -29,6 +31,14 @@ const Navbar = () => {
     document.documentElement.classList.toggle('dark', next);
     localStorage.setItem('theme', next ? 'dark' : 'light');
   };
+
+  const closeMenu = () => setShowMenu(false);
+
+  const desktopNavClass = ({ isActive }) =>
+    isActive ? 'desktopMenuListItem active' : 'desktopMenuListItem';
+
+  const mobileNavClass = ({ isActive }) =>
+    isActive ? 'listItem active' : 'listItem';
 
   return (
     <nav className="navbar">
@@ -47,10 +57,20 @@ const Navbar = () => {
       </button>
 
       <div className="desktopMenu">
-        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Home</Link>
-        <Link activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">About</Link>
-        <Link activeClass='active' to='projects' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Projects</Link>
-        <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Contact Me</Link>
+        {onWritingsPage ? (
+          <>
+            <NavLink to="/" className={desktopNavClass} end>Home</NavLink>
+            <NavLink to="/writings" className={desktopNavClass}>Writings</NavLink>
+          </>
+        ) : (
+          <>
+            <ScrollLink activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Home</ScrollLink>
+            <ScrollLink activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">About</ScrollLink>
+            <ScrollLink activeClass='active' to='projects' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Projects</ScrollLink>
+            <NavLink to="/writings" className={desktopNavClass}>Writings</NavLink>
+            <ScrollLink activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="desktopMenuListItem">Contact Me</ScrollLink>
+          </>
+        )}
       </div>
 
       <a
@@ -64,19 +84,37 @@ const Navbar = () => {
         <span>Resume</span>
       </a>
 
-      <img src={menu} alt='Menu' className='mobMenu' onClick={() => setShowMenu(!showMenu)} />
+      <button
+        type="button"
+        className="mobMenu"
+        onClick={() => setShowMenu(!showMenu)}
+        aria-label={showMenu ? 'Close menu' : 'Open menu'}
+        aria-expanded={showMenu}
+      >
+        <img src={menu} alt="" aria-hidden="true" />
+      </button>
       <div className="navMenu" style={{ display: showMenu ? 'flex' : 'none' }}>
-        <Link activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>Home</Link>
-        <Link activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>About</Link>
-        <Link activeClass='active' to='projects' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>Projects</Link> 
-        <Link activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={() => setShowMenu(false)}>Contact</Link>
+        {onWritingsPage ? (
+          <>
+            <NavLink to="/" className={mobileNavClass} end onClick={closeMenu}>Home</NavLink>
+            <NavLink to="/writings" className={mobileNavClass} onClick={closeMenu}>Writings</NavLink>
+          </>
+        ) : (
+          <>
+            <ScrollLink activeClass='active' to='intro' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={closeMenu}>Home</ScrollLink>
+            <ScrollLink activeClass='active' to='about' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={closeMenu}>About</ScrollLink>
+            <ScrollLink activeClass='active' to='projects' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={closeMenu}>Projects</ScrollLink>
+            <NavLink to="/writings" className={mobileNavClass} onClick={closeMenu}>Writings</NavLink>
+            <ScrollLink activeClass='active' to='contact' spy={true} smooth={true} offset={-100} duration={750} easing="easeInOutCubic" className="listItem" onClick={closeMenu}>Contact</ScrollLink>
+          </>
+        )}
         <a
           href={resumeFile}
           className="listItem"
           download="Vishal_Kodam_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => setShowMenu(false)}
+          onClick={closeMenu}
         >
           Resume
         </a>

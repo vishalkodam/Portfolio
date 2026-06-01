@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useReducer, useRef } from "react";
 import "./chatbot.css";
 import { knowledgeText } from "../../chatbot/knowledgeText.js";
 import { retrieveTopChunks } from "../../chatbot/retrieval.js";
@@ -14,19 +14,57 @@ function nowId() {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
 
+const initialMessage = {
+  id: nowId(),
+  role: "assistant",
+  content:
+    "Hi — I'm Vishal's portfolio assistant. Ask me anything about Vishal (skills, projects, research, contact).",
+};
+
+const initialState = {
+  isOpen: false,
+  input: "",
+  isSending: false,
+  error: "",
+  messages: [initialMessage],
+};
+
+function chatReducer(state, action) {
+  switch (action.type) {
+    case "TOGGLE_OPEN":
+      return { ...state, isOpen: !state.isOpen };
+    case "SET_OPEN":
+      return { ...state, isOpen: action.open };
+    case "SET_INPUT":
+      return { ...state, input: action.value };
+    case "SET_SENDING":
+      return { ...state, isSending: action.value };
+    case "SET_ERROR":
+      return { ...state, error: action.value };
+    case "ADD_MESSAGE":
+      return { ...state, messages: [...state.messages, action.message] };
+    case "CLEAR_CHAT":
+      return {
+        ...state,
+        error: "",
+        messages: [action.message],
+      };
+    case "SEND_START":
+      return {
+        ...state,
+        error: "",
+        isSending: true,
+        input: "",
+        messages: [...state.messages, action.message],
+      };
+    default:
+      return state;
+  }
+}
+
 export default function ChatbotWidget() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [input, setInput] = useState("");
-  const [isSending, setIsSending] = useState(false);
-  const [error, setError] = useState("");
-  const [messages, setMessages] = useState(() => [
-    {
-      id: nowId(),
-      role: "assistant",
-      content:
-        "Hi — I’m Vishal’s portfolio assistant. Ask me anything about Vishal (skills, projects, research, contact).",
-    },
-  ]);
+  const [state, dispatch] = useReducer(chatReducer, initialState);
+  const { isOpen, input, isSending, error, messages } = state;
 
   const listRef = useRef(null);
   const inputRef = useRef(null);
@@ -47,12 +85,8 @@ export default function ChatbotWidget() {
     const content = text.trim();
     if (!content || isSending) return;
 
-    setError("");
-    setIsSending(true);
-
     const userMsg = { id: nowId(), role: "user", content };
-    setMessages((prev) => [...prev, userMsg]);
-    setInput("");
+    dispatch({ type: "SEND_START", message: userMsg });
 
     try {
       const chunks = retrieveTopChunks({
@@ -72,9 +106,9 @@ export default function ChatbotWidget() {
           id: nowId(),
           role: "assistant",
           content:
-            "Chatbot is installed, but the chat API isn’t configured yet. Set `REACT_APP_CHAT_API_URL` to your deployed Worker URL (ending in `/chat`).",
+            "Chatbot is installed, but the chat API isn't configured yet. Set `REACT_APP_CHAT_API_URL` to your deployed Worker URL (ending in `/chat`).",
         };
-        setMessages((prev) => [...prev, assistantMsg]);
+        dispatch({ type: "ADD_MESSAGE", message: assistantMsg });
         return;
       }
 
@@ -99,17 +133,17 @@ export default function ChatbotWidget() {
       const assistantMsg = {
         id: nowId(),
         role: "assistant",
-        content: answer || "I couldn’t generate an answer right now. Please try again.",
+        content: answer || "I couldn't generate an answer right now. Please try again.",
       };
-      setMessages((prev) => [...prev, assistantMsg]);
+      dispatch({ type: "ADD_MESSAGE", message: assistantMsg });
     } catch (e) {
       const msg =
         typeof e?.message === "string" && e.message.trim()
           ? e.message.trim().slice(0, 300)
           : "Something went wrong. Please try again.";
-      setError(msg);
+      dispatch({ type: "SET_ERROR", value: msg });
     } finally {
-      setIsSending(false);
+      dispatch({ type: "SET_SENDING", value: false });
     }
   }
 
@@ -119,15 +153,15 @@ export default function ChatbotWidget() {
   }
 
   function clearChat() {
-    setError("");
-    setMessages([
-      {
+    dispatch({
+      type: "CLEAR_CHAT",
+      message: {
         id: nowId(),
         role: "assistant",
         content:
           "Cleared. Ask me anything about Vishal (skills, projects, research, contact).",
       },
-    ]);
+    });
   }
 
   return (
@@ -135,7 +169,7 @@ export default function ChatbotWidget() {
       <button
         type="button"
         className="chatbotFab"
-        onClick={() => setIsOpen((v) => !v)}
+        onClick={() => dispatch({ type: "TOGGLE_OPEN" })}
         aria-label={isOpen ? "Close chat" : "Open chat"}
         aria-expanded={isOpen}
       >
@@ -153,7 +187,7 @@ export default function ChatbotWidget() {
               <button
                 type="button"
                 className="chatbotHeaderBtn"
-                onClick={() => setIsOpen(false)}
+                onClick={() => dispatch({ type: "SET_OPEN", open: false })}
                 aria-label="Close chat"
               >
                 Close
@@ -193,7 +227,7 @@ export default function ChatbotWidget() {
               ref={inputRef}
               className="chatbotInput"
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => dispatch({ type: "SET_INPUT", value: e.target.value })}
               placeholder="Ask a question…"
               maxLength={400}
               disabled={isSending}
@@ -207,4 +241,3 @@ export default function ChatbotWidget() {
     </div>
   );
 }
-

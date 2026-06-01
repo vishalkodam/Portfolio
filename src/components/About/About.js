@@ -13,7 +13,7 @@ const About = () => {
         </p>
 
         <p>
-          My journey began with a Bachelor’s in Electronics and Communication from <span className='highlightedName'>IIIT-N</span>, where I built a strong foundation in hardware and systems. Since then, I have grown into software and AI—building LLM-powered tools, data pipelines, and DevOps workflows—while my current role strengthens how I think about reliability, connectivity, and real-world infrastructure. My IEEE research on "<a href='https://ieeexplore.ieee.org/abstract/document/9781958' target='_blank' rel='noopener noreferrer'><em>Covid-19 Detection from X-ray Scans Using Alexa</em></a>" reflects the same drive: applying technology to problems that matter.
+          My journey began with a Bachelor’s in Electronics and Communication from <span className='highlightedName'>IIIT-N</span>, where I built a strong foundation in hardware and systems. Since then, I have grown into software and AI, building LLM-powered tools, data pipelines, and DevOps workflows, while my current role strengthens how I think about reliability, connectivity, and real-world infrastructure. My IEEE research on "<a href='https://ieeexplore.ieee.org/abstract/document/9781958' target='_blank' rel='noopener noreferrer'><em>Covid-19 Detection from X-ray Scans Using Alexa</em></a>" reflects the same drive: applying technology to problems that matter.
         </p>
       </div>
 

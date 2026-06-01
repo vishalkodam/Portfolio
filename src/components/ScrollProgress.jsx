@@ -1,4 +1,4 @@
-import { motion, useReducedMotion, useScroll } from "framer-motion";
+import { m, useReducedMotion, useScroll } from "framer-motion";
 
 export default function ScrollProgress() {
   const reduceMotion = useReducedMotion();
@@ -9,7 +9,7 @@ export default function ScrollProgress() {
   }
 
   return (
-    <motion.div
+    <m.div
       className="scroll-progress"
       style={{ scaleX: scrollYProgress }}
       aria-hidden="true"
